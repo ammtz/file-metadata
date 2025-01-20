@@ -9,11 +9,13 @@ dotenv.config();
 
 const app = express();
 
+
 // Middleware for parsing form data
+app.use(express.static('public')); // index.html served automatically here
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public')); // index.html served automatically here
+
 
 // Configure multer to use memory storage
 const storage = multer.memoryStorage();
